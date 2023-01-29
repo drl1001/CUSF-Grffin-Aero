@@ -20,7 +20,6 @@ Ge = 4.5e6
 mach_values = []
 for h in height:
     mach_no = flutter_eq(h,Ge,thick,c_r,c_t,fin_height)
-    print(mach_no)
     mach_values.append(mach_no)
 
 plt.plot(height/1000,mach_values)
