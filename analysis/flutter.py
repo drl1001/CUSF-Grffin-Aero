@@ -1,25 +1,28 @@
 #contains flutter equation
 from math import sqrt
-
+from ambiance import Atmosphere
 
 #need function to relate speed of sound and atmospheric temperature which varies with altitude. 
-
-
-def flutter_eq(a,G,t,cr,ct,s,p):
+def flutter_eq(h,G,t,cr,ct,s):
     '''returns critical mach number for given parameters:
-    a - speed of sound at a given altitude
+    h - altitude
     G - shear modulus of material used for fin
     t - thickness of fin
     cr - root chord length
     ct - tip chord length
     s - height of fin
-    p - atmospheric pressure at a given altitude
     NB: all dimensions are given as SI units'''
 
     #critical velocity v_f at certain altitude depends on the speed of sound and atmospheric pressure at that altitude.
+    atmosphere = Atmosphere(h)
+    #speed of sound a
+    a = sqrt(1.4*8.3144598*(atmosphere.temperature_in_celsius + 273.15))
 
     #Panel aspect ratio AR
     AR = 2*s / (ct + cr)
+
+    #pressure, p, at given altitude
+    p = atmosphere.pressure 
 
     #taper ratio TR
     TR = ct / cr
