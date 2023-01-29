@@ -38,7 +38,7 @@ def flutter_eq(h,G,t,cr,ct,s):
     vf = a*sqrt(G/(((39.3*AR**3)/((t/cr)**3*(AR+2)))*((TR+1)/2)*(p/p0)))
 
     #critical Mach number mach at given altitude
-    mach = vf * a
+    mach = vf/a
 
     return mach
 
