@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from ambiance import Atmosphere 
 
 #generating some heights 
-height = np.linspace(0,80e3,num=1000)
+height = np.linspace(0,80e3,num=100)
 
 
 #for reference dimensions are that of Aquila fins
@@ -15,11 +15,12 @@ fin_height = 0.2
 thick = 0.01 
 
 #using shear modulus Ge of phenolic resin, measured in Pa
-Ge = 4.5e6 
+Ge = 4.5e6
 
 mach_values = []
 for h in height:
     mach_no = flutter_eq(h,Ge,thick,c_r,c_t,fin_height)
+    print(mach_no)
     mach_values.append(mach_no)
 
 plt.plot(height/1000,mach_values)
