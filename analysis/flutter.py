@@ -5,16 +5,19 @@ from ambiance import Atmosphere
 #need function to relate speed of sound and atmospheric temperature which varies with altitude. 
 def flutter_eq(h,G,t,cr,ct,s):
     '''returns critical mach number for given parameters:
-    h - altitude
-    G - shear modulus of material used for fin
-    t - thickness of fin
-    cr - root chord length
-    ct - tip chord length
-    s - height of fin
+    h - altitude (m)
+    G - shear modulus of material used for fin (Pa)
+    t - thickness of fin (m)
+    cr - root chord length (m)
+    ct - tip chord length (m)
+    s - height of fin (m)
     NB: all dimensions should be given as SI units'''
 
     #shear modulus in psi
     Ge = G * (.9144/36)**2 * 1/9.80665 * 1/.45359237 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
+
+       
+
 
     #critical velocity v_f at certain altitude depends on the speed of sound and atmospheric pressure at that altitude.
     atmosphere = Atmosphere(h)
