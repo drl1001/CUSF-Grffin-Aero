@@ -18,8 +18,11 @@ class Fin:
         #need to find overall shear modulus - using a rule of mixtures (IS THIS OKAY?????) HELP!!!! - ASK BARTY!?!?
         #first find total thickness - remember skin is above and below, so twice the thickness
         self.thick = 2*self.skinthick + self.corethick
-        self.shear = self.skinshear*self.coreshear / ((2*self.skinthick/self.thick)**3 * self.coreshear + (self.corethick/self.thick)**3 * self.skinshear)
+        #self.shear = self.skinshear*self.coreshear / ((2*self.skinthick/self.thick) * self.coreshear + (self.corethick/self.thick)* self.skinshear)    #Reuben: I have removed the **3 after each thickness ratio which may be wrong
 
+
+
+        self.shear = (2*self.skinthick/self.thick + 0.516*self.corethick/self.thick)*self.coreshear*self.skinshear/(self.coreshear*(2*self.skinthick/self.thick)+0.400*self.skinshear*(self.corethick/self.thick)) * 1/self.thick  #This is using eq.14 from the same document, which is semi-empirical Halpin-Tsai theory 
 
     def __str__(self):
         return str(self.name)
