@@ -1,20 +1,21 @@
+#DON'T USE THIS MODULE ANYMORE!!!
+
 from analysis.flutter import flutter_eq
 import numpy as np
 import matplotlib.pyplot as plt 
 from analysis.simdata import convert_from_excel 
+from analysis.buildfin import Fin
 
 #generating some heights 
 height = np.linspace(0,30e3,num=100)
 
 
 #for reference dimensions are that of Aquila fins - now scaled up according to SolidWork simulation
-c_r = 0.9
+c_r = 0.1
 c_t = 0.4
-fin_height = 0.4
+fin_height = 0.3
 #from computation and trial and error, thickness is best at 7mm
-thick = 0.007
-
-#using shear modulus of 7050 Aluminium 
+thick = 0.0095 #using shear modulus of 7050 Aluminium 
 Ge = 26.9e9
 
 mach_values = []
