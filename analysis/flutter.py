@@ -13,7 +13,7 @@ def flutter_eq(fin,h):
     
 
     #shear modulus in psi
-    Ge = fin.shear * (.9144/36)**2 * 1/9.80665 * 1/.45359237 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
+    Ge = fin.skinshear * (.9144/36)**2 * 1/9.80665 * 1/.45359237 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
 
        
 
@@ -44,7 +44,7 @@ def flutter_eq(fin,h):
     x = 39.3*AR**3 * 1/(fin.thick/c)**3 * 1/(AR+2)
     
     #critical mach number at a given altitude 
-    mach = sqrt(Ge/(x*(TR+1)/2*p/p0))
+    mach = (sqrt(Ge/(x*(TR+1)/2*p/p0)))*14/17
 
     #critical Mach number mach at given altitude
     #mach = vf/a

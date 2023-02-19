@@ -2,13 +2,13 @@
 # for easier usage and application in future analysis as this software gets updated with more features. 
 
 class Fin:
-    def __init__(self,name,Gs,Gc,ts,tc,cr,ct,s):
+    def __init__(self,name,Gs,ts,tc,cr,ct,s):
         #defines attributes of the fin: shear Modulus G, thickness t, root chord cr, tip chord ct, and fin height s.
         # name is the identity of the fin, which is a string of the name of the fin material
 
         self.name = name
         self.skinshear = Gs
-        self.coreshear = Gc
+        #self.coreshear = Gc
         self.skinthick = ts
         self.corethick = tc
         self.root = cr
@@ -18,11 +18,12 @@ class Fin:
         #need to find overall shear modulus - using a rule of mixtures (IS THIS OKAY?????) HELP!!!! - ASK BARTY!?!?
         #first find total thickness - remember skin is above and below, so twice the thickness
         self.thick = 2*self.skinthick + self.corethick
-        #self.shear = self.skinshear*self.coreshear / ((2*self.skinthick/self.thick) * self.coreshear + (self.corethick/self.thick)* self.skinshear)    #Reuben: I have removed the **3 after each thickness ratio which may be wrong
+        
 
 
-
-        self.shear = (2*self.skinthick/self.thick + 0.516*self.corethick/self.thick)*self.coreshear*self.skinshear/(self.coreshear*(2*self.skinthick/self.thick)+0.400*self.skinshear*(self.corethick/self.thick)) * 1/self.thick  #This is using eq.14 from the same document, which is semi-empirical Halpin-Tsai theory 
+    
+        #self.shear = (2*self.skinthick/self.thick + 0.516*self.corethick/self.thick)*self.coreshear*self.skinshear/(self.coreshear*(2*self.skinthick/self.thick)+0.400*self.skinshear*(self.corethick/self.thick)) * 1/self.thick  #This is using eq.14 from the same document, which is semi-empirical Halpin-Tsai theory 
+        
 
     def __str__(self):
         return str(self.name)
