@@ -1,4 +1,6 @@
-# CUSF-Grffin-Aero-Composites
+# CUSF-Grffin-Aero
+
+Targets will change according to progress in design stages.
 For files and programs analysing fins
 Repository containing files and programs analysing behaviour of composite fins and foundational models.
 
