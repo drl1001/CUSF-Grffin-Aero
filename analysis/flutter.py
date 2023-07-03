@@ -13,7 +13,7 @@ def flutter_eq(fin,h):
     
 
     #shear modulus in psi
-    Ge = fin.skinshear * (.9144/36)**2 * 1/9.80665 * 1/.45359237 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
+    Ge = fin.skinshear * 0.000145038 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
 
        
 
@@ -26,7 +26,10 @@ def flutter_eq(fin,h):
     a = sqrt(1.4*8.3144598*(atmosphere.temperature))
 
     #Panel aspect ratio AR
-    AR = 2*fin.height / (fin.tip + fin.root)
+
+    #fin area A
+    A = 0.5 * fin.semispan * (fin.tip + fin.root)
+    AR = fin.semispan**2 / A
 
     #taper ratio TR
     TR = fin.tip / fin.root
@@ -44,7 +47,7 @@ def flutter_eq(fin,h):
     x = 39.3*AR**3 * 1/(fin.thick/c)**3 * 1/(AR+2)
     
     #critical mach number at a given altitude 
-    mach = (sqrt(Ge/(x*(TR+1)/2*p/p0)))*14/17
+    mach = (sqrt(Ge/(x*(TR+1)/2*p/p0)))
 
     #critical Mach number mach at given altitude
     #mach = vf/a

@@ -13,7 +13,7 @@ class Fin:
         self.corethick = tc
         self.root = cr
         self.tip = ct
-        self.height = s
+        self.semispan = s
 
         #need to find overall shear modulus - using a rule of mixtures (IS THIS OKAY?????) HELP!!!! - ASK BARTY!?!?
         #first find total thickness - remember skin is above and below, so twice the thickness

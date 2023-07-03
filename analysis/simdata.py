@@ -10,3 +10,5 @@ def convert_from_excel(filename,sheet):
     df = pd.read_excel(filename,sheet)
     sim = df.to_numpy()
     return sim
+
+
