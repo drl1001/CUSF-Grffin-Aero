@@ -13,7 +13,8 @@ def flutter_eq(fin,h):
     
 
     #shear modulus in psi
-    Ge = fin.skinshear * 0.000145038 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
+    #effective shear modulus (we hope the formula is correct...) is the shear modulus of the solid fin (ie skin material) multiplied by ratio of natural frequencies of the composite to solid. 
+    Ge = fin.skinshear * 0.000145038 * fin.cf / fin.sf 
 
        
 
@@ -46,6 +47,7 @@ def flutter_eq(fin,h):
     #parameter x (see NACA 4197)
     x = 39.3*AR**3 * 1/(fin.thick/c)**3 * 1/(AR+2)
     
+
     #critical mach number at a given altitude 
     mach = (sqrt(Ge/(x*(TR+1)/2*p/p0)))
 
