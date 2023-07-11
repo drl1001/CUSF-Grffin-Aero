@@ -13,7 +13,8 @@ def flutter_eq(fin,h):
     
 
     #shear modulus in psi
-    Ge = fin.skinshear * 0.000145038 #NB:NOT ACTUAL SHEAR MODULUS. equation uses effective shear modulus, which is different 
+    #effective shear modulus (hopefully the formula is correct)
+    Ge = fin.skinshear * 0.000145038 * fin.cf / fin.sf
 
        
 

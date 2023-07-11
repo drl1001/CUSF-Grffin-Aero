@@ -2,7 +2,7 @@
 # for easier usage and application in future analysis as this software gets updated with more features. 
 
 class Fin:
-    def __init__(self,name,Gs,ts,tc,cr,ct,s):
+    def __init__(self,name,Gs,ts,tc,cr,ct,s,sf,cf):
         #defines attributes of the fin: shear Modulus G, thickness t, root chord cr, tip chord ct, and fin height s.
         # name is the identity of the fin, which is a string of the name of the fin material
 
@@ -14,6 +14,8 @@ class Fin:
         self.root = cr
         self.tip = ct
         self.semispan = s
+        self.sf = sf 
+        self.cf = cf 
 
         #need to find overall shear modulus - using a rule of mixtures (IS THIS OKAY?????) HELP!!!! - ASK BARTY!?!?
         #first find total thickness - remember skin is above and below, so twice the thickness
