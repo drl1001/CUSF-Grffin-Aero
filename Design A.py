@@ -1,6 +1,6 @@
 from analysis.buildfin import Fin
 from analysis.plot import plotdata
-from Stability_and_COMs import stability_check
+from analysis.Stability_and_COMs import stability_check
 
 Fin_A = Fin(name='Design A',Gs=78e9,ts=0.7e-3,tc=11.1e-3,cr=1.1,ct=0.7  ,s=0.35,cf=254, sf=188)
 plotdata(Fin_A,30e3)
