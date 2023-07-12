@@ -13,13 +13,8 @@ def flutter_eq(fin,h):
     
 
     #shear modulus in psi
-<<<<<<< HEAD
-    #effective shear modulus (we hope the formula is correct...) is the shear modulus of the solid fin (ie skin material) multiplied by ratio of natural frequencies of the composite to solid. 
-    Ge = fin.skinshear * 0.000145038 * fin.cf / fin.sf 
-=======
     #effective shear modulus (hopefully the formula is correct)
     Ge = fin.skinshear * 0.000145038 * fin.cf / fin.sf
->>>>>>> ccc633dab88da75d11f2c9a6e314c585307ffdab
 
        
 
