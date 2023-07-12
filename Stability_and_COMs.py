@@ -86,12 +86,12 @@ def calcCentreOfMass(t):
 ##### MY FUNCTION: PLOTS STABILITY AND COP VS 2 CAL POINT AND PRINTS STABILITY AT TIME T #######
 
 #cops from RASAero for mach 0,0.5,1.0 .... 5.0
-def stability_check(cops,t):
+def stability_check(cops,t,p):
     if len(cops) != 11:
         raise ValueError("cops input must be length 11, with cops from 0,0.5.... 5 mach from rasaero")
     #machs=[0,0.5,1,1.5,2,2.5,3,3.5,4,4.5] find from data sheet the approx time corresponding 5.5 will be extrapolated
     mach_to_times=[0.00,3.81,7.26,11.03,15.94,19.64,22.52,25.36,27.74,29.79,31.65] #corresponding
-    coeffs=np.polyfit(mach_to_times,cops,2)
+    coeffs=np.polyfit(mach_to_times,cops,p)
     eq=np.poly1d(coeffs)
     t_com=np.linspace(0,35,10*35)
     y_cop=eq(t_com)
