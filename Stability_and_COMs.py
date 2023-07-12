@@ -134,4 +134,3 @@ def fitted_plot(t_for_test):
         y_array1.append((9.64-calcCentreOfMass(t_for_test[p])+2*0.375)*39.37)
     plt.plot(t_for_test,y_array1)
     plt.show()
-fitted_plot(4)
