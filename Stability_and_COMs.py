@@ -95,13 +95,13 @@ def stability_check(cops,t,p):
     eq=np.poly1d(coeffs)
     t_com=np.linspace(0,35,10*35)
     y_cop=eq(t_com)
-    coms=[]
+    coms2cal=[]
     for j in range(len(t_com)):
-        coms.append((9.64-calcCentreOfMass(t_com[j])+2*0.375)*39.37)   #cop must be 2 cals below com
-    calibers=2+(y_cop-coms)/39.37
+        coms2cal.append((9.64-calcCentreOfMass(t_com[j])+2*0.375)*39.37)   #cop must be 2 cals below com
+    calibers=2+(y_cop-coms2cal)/(0.375*39.37)
     figure,axes1=plt.subplots(1,2)
     plt.tight_layout()
-    axes1[0].plot(t_com,coms,color='red',label='2 cal point through flight')
+    axes1[0].plot(t_com,coms2cal,color='red',label='2 cal point through flight')
     axes1[0].legend(loc='upper right')
     axes1[0].set_xlabel('Time(s)')
     axes1[0].set_ylabel('Distance from nose tip (inches)')
