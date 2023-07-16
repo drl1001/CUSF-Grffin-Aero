@@ -95,13 +95,13 @@ def stability_check(cops,t,p):
     eq=np.poly1d(coeffs)
     t_com=np.linspace(0,35,10*35)
     y_cop=eq(t_com)
-    coms2cal=[]
+    coms=[]
     for j in range(len(t_com)):
-        coms2cal.append((9.64-calcCentreOfMass(t_com[j])+2*0.375)*39.37)   #cop must be 2 cals below com
-    calibers=2+(y_cop-coms2cal)/(0.375*39.37)
+        coms.append((9.64-calcCentreOfMass(t_com[j]))*39.37)   #cop must be 2 cals below com
+    calibers=(y_cop-coms)/(0.375*39.37)
     figure,axes1=plt.subplots(1,2)
     plt.tight_layout()
-    axes1[0].plot(t_com,coms2cal,color='red',label='2 cal point through flight')
+    axes1[0].plot(t_com,coms,color='red',label='COM')
     axes1[0].legend(loc='upper right')
     axes1[0].set_xlabel('Time(s)')
     axes1[0].set_ylabel('Distance from nose tip (inches)')
@@ -110,7 +110,7 @@ def stability_check(cops,t,p):
     for i in range(0,len(cops)):
       axes1[0].plot(mach_to_times[i],cops[i],marker='o',markeredgecolor="yellow", markerfacecolor="purple")
     axes1[0].legend(loc='lower left')
-    axes1[0].set_title('COP vs 2 cal point')
+    axes1[0].set_title('COP vs COM')
     axes1[1].plot(t_com,calibers,label='calibers of stability')
     axes1[1].axvline(32.82, color='black', label='mach 5.5/max speed time')
     axes1[1].set_xlabel('Time(s)')
