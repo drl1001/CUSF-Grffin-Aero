@@ -105,32 +105,21 @@ def stability_check(cops,t,p):
     axes1[0].legend(loc='upper right')
     axes1[0].set_xlabel('Time(s)')
     axes1[0].set_ylabel('Distance from nose tip (inches)')
-    axes1[0].plot(t_com,y_cop,color='green',label='C.O.P -ONLY VALID TO BLACK LINE')
+    axes1[0].plot(t_com,y_cop,color='green',label='C.O.P - ONLY VALID TO BLACK LINE')
     axes1[0].axvline(32.82, color='black', label='mach 5.5 timestamp')
     for i in range(0,len(cops)):
       axes1[0].plot(mach_to_times[i],cops[i],marker='o',markeredgecolor="yellow", markerfacecolor="purple")
     axes1[0].legend(loc='lower left')
     axes1[0].set_title('COP vs COM')
+    if not 0<=t<=33:
+      raise ValueError("time must be in range 0 to 33s")
+    t_finder=round(10*t)
+    stability_point=calibers[t_finder]
+    print(f'Stability at time {round(t)} seconds is {stability_point} calibers.')
     axes1[1].plot(t_com,calibers,label='calibers of stability')
     axes1[1].axvline(32.82, color='black', label='mach 5.5/max speed time')
     axes1[1].set_xlabel('Time(s)')
     axes1[1].set_ylabel('Calibers of stability')
     axes1[1].legend(loc='upper right')
     plt.title(f'Stability Analysis',loc='center')
-    plt.show()
-    if not 0<=t<=33:
-      raise ValueError("time must be in range 0 to 33s")
-    t_finder=round(10*t)
-    stability_point=calibers[t_finder]
-    print(f'Stability at time {round(t)} seconds is {stability_point} calibers.')
-
-
-#useless function atm
-def fitted_plot(t_for_test):
-    t_test=40 #must be integer
-    t_for_test=np.linspace(0,t_test,10*t_test)  
-    y_array1=[]
-    for p in range(0,len(t_for_test)):
-        y_array1.append((9.64-calcCentreOfMass(t_for_test[p])+2*0.375)*39.37)
-    plt.plot(t_for_test,y_array1)
     plt.show()

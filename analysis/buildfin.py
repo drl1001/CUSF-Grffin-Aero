@@ -14,7 +14,7 @@ class Fin:
         self.root = cr
         self.tip = ct
         self.semispan = s
-        self.sf = sf 
+        self.sf = sf  #solid and composite natural frequencies
         self.cf = cf 
 
         #need to find overall shear modulus - using a rule of mixtures (IS THIS OKAY?????) HELP!!!! - ASK BARTY!?!?
